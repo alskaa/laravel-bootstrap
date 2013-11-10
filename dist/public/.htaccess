@@ -1,0 +1,9 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+RewriteBase /wissamecherfi.com/dist/public/
+
+RewriteCond %{REQUEST_URI} !\.(gif|jpg|png)$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php/$1 [L]

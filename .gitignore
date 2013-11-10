@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+node_modules
+
+dist/bootstrap/compiled.php
+dist/composer.phar
+dist/composer.lock
+dist/vendor
+
+src/bower_components
