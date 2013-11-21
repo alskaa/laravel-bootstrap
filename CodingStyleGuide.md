@@ -65,12 +65,57 @@ CSS (LESS/SASS)
 ---------------
 
 ### Bootstrap / Foundation
-
 Extend vendor class in the stylesheet (not in HTML)
 ```
 .container {
     &:extend(.col-md-6);
 }
+```
+
+### Colors
+Declare colors in var file but do not use them directly in your CSS. Instead, and a second level in var with elements color relied with basic colors.
+```
+@softWhite: rgb(245,245,245);
+@softBlack: rgb(40,40,40);
+
+@backgroundColor: @softBlack;
+@buttonColor: @softWhite;
+```
+
+### Typography
+
+#### Font size
+Declare base font-size for html element and use REM.
+```
+html {
+    font-size: 14px;
+}
+h1 {
+    @include fontSize(20px);
+}
+```
+```
+@function calculateRem($size) {
+    $remSize: $size / $rootFontSize;
+    @return #{$remSize}rem;
+}
+@mixin fontSize($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+```
+#### Typography vars
+
+```
+/* Typographie Colors */
+@baseTypeColor: $softBlack;
+@warningTypeColor: $red;
+
+/* Typographie */
+@baseLineHeight: 1.5em !default;
+@baseFontSize: 14px !default;
+@baseFontFamily: OpenSans, sans-serif;
+@baseTextColor: $softBlack;
 ```
 
 ***
