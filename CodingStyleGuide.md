@@ -1,4 +1,3 @@
-
 Coding Style Guide
 ==================
 
@@ -24,8 +23,8 @@ Comments
 HTML
 ---------------
 
-### Classes names
-Don't put framework classes names in the HTML; extends them in CSS.
+### Class names
+Don't put framework class names in the HTML; extends them in CSS.
 
 ***
 
@@ -55,4 +54,5 @@ Don't use CSS class name to select object in JS, use data-js attribute instead.
 $('button[data-js=signup]').click(signUp);
 ```
 
+***
 > Written with [StackEdit](https://stackedit.io/).
