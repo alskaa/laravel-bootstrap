@@ -1,11 +1,10 @@
 module.exports = function(grunt) {
 
   /*
-  |--------------------------------------------------------------------------
-  | Project configuration
-  |--------------------------------------------------------------------------
+  | _________________________________________________
   |
-  | 
+  |   Project configuration
+  | _________________________________________________
   |
   */
   grunt.initConfig({
@@ -13,138 +12,134 @@ module.exports = function(grunt) {
 
 
     /*
-    |--------------------------------------------------------------------------
-    | Project Vars
-    |--------------------------------------------------------------------------
+    | _________________________________________________
     |
-    | 
+    |   Project variables
+    | _________________________________________________
     |
     */
     project: {
-      // Src
+
+      /* Src
+      -------------- */
       src: 'src',
-      bower: '<%= project.src %>/bower_components',
-      less: [
-        '<%= project.src %>/less/main.less'
-      ],
-      js: [
-        '<%= project.src %>/js/*.js'
-      ],
-      // Dist
+      src_bower: '<%= project.src %>/bower_components',
+      src_components: '<%= project.src %>/components',
+      src_scss: '<%= project.src %>/scss',
+      src_js: '<%= project.src %>/js',
+
+      /* Dist
+      -------------- */
       dist: 'dist',
-      assets: '<%= project.dist %>/public/assets'
+      dist_assets: '<%= project.dist %>/www/assets',
+      dist_views: '<%= project.dist %>/app/views',
+      dist_css: '<%= project.dist_assets %>/css',
+      dist_js: '<%= project.dist_assets %>/js',
+
     },
 
     /*
-    |--------------------------------------------------------------------------
-    | Copy Task
-    |--------------------------------------------------------------------------
+    | _________________________________________________
     |
-    | 
+    |   Copy task
+    | _________________________________________________
     |
     */
     copy: {
       dev: {
         files: [
-          {src:'<%= project.bower %>/jquery/jquery.min.js', dest:'<%= project.assets %>/js/jquery.min.js'},
-
-          // Order boostrap *.js before concat or uglify
-          // -------------------------------------------
-          {src:'<%= project.bower %>/bootstrap/js/transition.js', dest:'<%= project.src %>/js/01-transition.js'},
-          {src:'<%= project.bower %>/bootstrap/js/alert.js', dest:'<%= project.src %>/js/02-alert.js'},
-          //{src:'<%= project.bower %>/bootstrap/js/button.js', dest:'<%= project.src %>/js/03-button.js'},
-          //{src:'<%= project.bower %>/bootstrap/js/carousel.js', dest:'<%= project.src %>/js/04-carousel.js'},
-          {src:'<%= project.bower %>/bootstrap/js/collapse.js', dest:'<%= project.src %>/js/05-collapse.js'},
-          //{src:'<%= project.bower %>/bootstrap/js/dropdown.js', dest:'<%= project.src %>/js/06-dropdown.js'},
-          //{src:'<%= project.bower %>/bootstrap/js/modal.js', dest:'<%= project.src %>/js/07-modal.js'},
-          {src:'<%= project.bower %>/bootstrap/js/tooltip.js', dest:'<%= project.src %>/js/08-tooltip.js'},
-          {src:'<%= project.bower %>/bootstrap/js/popover.js', dest:'<%= project.src %>/js/09-popover.js'},
-          {src:'<%= project.bower %>/bootstrap/js/scrollspy.js', dest:'<%= project.src %>/js/10-scrollspy.js'},
-          //{src:'<%= project.bower %>/bootstrap/js/tab.js', dest:'<%= project.src %>/js/11-tab.js'},
-          //{src:'<%= project.bower %>/bootstrap/js/affix.js', dest:'<%= project.src %>/js/12-affix.js'},
-
-          {src:'<%= project.bower %>/bootstrap-filestyle/src/bootstrap-filestyle.js', dest:'<%= project.src %>/js/98-bootstrap-filestyle.js'},
+          {src:'<%= project.src_bower %>/jquery/jquery.min.js', dest:'<%= project.dist_js %>/jquery.min.js'},
+          {src:'<%= project.src_components %>/**/*.blade.php', dest:'<%= project.dist_views %>/layouts/components/'}
         ],
-        filter: function(filepath) {
-          var path = require('path');
-          var dest = path.join(
-            grunt.config('copy.js.dest'),
-            // Remove the parent 'js/src' from filepath
-            filepath.split(path.sep).slice(2).join(path.sep)
-          );
-          return !(grunt.file.exists(dest));
-        },
       },
     },
 
     /*
-    |--------------------------------------------------------------------------
-    | Less Task
-    |--------------------------------------------------------------------------
+    | _________________________________________________
     |
-    | 
+    |   Sass task
+    | _________________________________________________
     |
     */
-    less: {
+    sass: {
       dev: {
         options: {
-          paths: ["src/bower_components/bootstrap/less/","src/bower_components/less-prefixer/","src/bower_components/csshat-lesshat/build/"]
+          style: 'expanded'
         },
         files: {
-          "<%= project.assets %>/css/style.min.css": "<%= project.less %>"
+          '<%= project.dist_css %>/global.min.css': '<%= project.src_scss %>/global.scss',
+          '<%= project.dist_css %>/page.min.css': '<%= project.src_scss %>/page.scss'
         }
       },
       prod: {
         options: {
-          paths: ["src/bower_components/bootstrap/less/","src/bower_components/less-prefixer/","src/bower_components/csshat-lesshat/build/"],
-          cleancss: true
+          style: 'compressed'
         },
         files: {
-          "<%= project.assets %>/css/style.min.css": "<%= project.less %>"
+          '<%= project.dist_css %>/global.min.css': '<%= project.src_scss %>/global.scss',
+          '<%= project.dist_css %>/page.min.css': '<%= project.src_scss %>/page.scss'
         }
-      }
+      },
     },
 
     /*
-    |--------------------------------------------------------------------------
-    | Concat Task
-    |--------------------------------------------------------------------------
+    | _________________________________________________
     |
-    | 
+    |   Concat task
+    | _________________________________________________
     |
     */
     concat: {
       dev: {
         files: {
-          '<%= project.assets %>/js/html5shiv.min.js': '<%= project.bower %>/html5shiv/dist/html5shiv.js',
-          '<%= project.assets %>/js/main.min.js': '<%= project.js %>'
+
+          /* Create global.js
+          ------------------- */
+          '<%= project.dist_js %>/global.min.js': [
+            '<%= project.src_js/global.js %>',
+          ],
+
+          /* Create page.js
+          ----------------- */
+          '<%= project.dist_js %>/page.min.js': [
+            '<%= project.src_components/component/component.js %>',
+            '<%= project.src_js/page.js %>',
+          ],
         }
       }
     },
 
     /*
-    |--------------------------------------------------------------------------
-    | Uglify Task
-    |--------------------------------------------------------------------------
+    | _________________________________________________
     |
-    | 
+    |   Uglify task
+    | _________________________________________________
     |
     */
     uglify: {
       prod: {
         files: {
-          '<%= project.assets %>/js/html5shiv.min.js': '<%= project.bower %>/html5shiv/dist/html5shiv.js',
-          '<%= project.assets %>/js/main.min.js': '<%= project.js %>'
+
+          /* Create global.js
+          ------------------- */
+          '<%= project.dist_js %>/global.min.js': [
+            '<%= project.src_js/global.js %>',
+          ],
+
+          /* Create page.js
+          ----------------- */
+          '<%= project.dist_js %>/page.min.js': [
+            '<%= project.src_js/page.js %>',
+          ],
         }
       }
     },
 
     /*
-    |--------------------------------------------------------------------------
-    | bgShell Task
-    |--------------------------------------------------------------------------
+    | _________________________________________________
     |
-    | 
+    |   BgShell task
+    | _________________________________________________
     |
     */
     bgShell: {
@@ -155,20 +150,19 @@ module.exports = function(grunt) {
     },
 
     /*
-    |--------------------------------------------------------------------------
-    | Watch task
-    |--------------------------------------------------------------------------
+    | _________________________________________________
     |
-    | 
+    |   Watch task
+    | _________________________________________________
     |
     */
     watch: {
-      less: {
-        files: '<%= project.src %>/less/**/*',
-        tasks: ['less:dev']
+      sass: {
+        files: '<%= project.src %>/**/*.scss',
+        tasks: ['sass:dev']
       },
       uglify: {
-        files: '<%= project.src %>/js/**/*',
+        files: '<%= project.src %>/**/*.js',
         tasks: ['uglify:dev']
       },
       livereload: {
@@ -176,8 +170,8 @@ module.exports = function(grunt) {
           livereload: true
         },
         files: [
-          '<%= project.assets %>/**/*.css',
-          '<%= project.assets %>/**/*.js',
+          '<%= project.dist_assets %>/**/*.css',
+          '<%= project.dist_assets %>/**/*.js',
           '<%= project.dist %>/app/views/**/*.php'
         ]
       }
@@ -186,11 +180,10 @@ module.exports = function(grunt) {
   });
 
   /*
-  |--------------------------------------------------------------------------
-  | Load Grunt tasks
-  |--------------------------------------------------------------------------
+  | _________________________________________________
   |
-  | 
+  |   Load Grunt task
+  | _________________________________________________
   |
   */
   grunt.loadNpmTasks('grunt-contrib-less');
@@ -202,14 +195,13 @@ module.exports = function(grunt) {
 
 
   /*
-  |--------------------------------------------------------------------------
-  | Register tasks
-  |--------------------------------------------------------------------------
+  | _________________________________________________
   |
-  | 
+  |   Register task
+  | _________________________________________________
   |
   */
-  grunt.registerTask('default', ['copy:dev','less:dev','concat:dev','bgShell:launchServer','watch']);
-  grunt.registerTask('prod', ['copy:dev','less:prod','uglify:prod']);
+  grunt.registerTask('default', ['copy:dev','sass:dev','concat:dev','bgShell:launchServer','watch']);
+  grunt.registerTask('prod', ['copy:dev','sass:prod','uglify:prod']);
 
 };

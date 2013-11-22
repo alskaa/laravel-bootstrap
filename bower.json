@@ -5,8 +5,8 @@
     "bootstrap": "~3.0.1"
   },
   "devDependencies": {
-    "html5shiv": "~3.7.0",
-    "bootstrap-filestyle": "~1.0.3",
-    "csshat-lesshat": "~2.0.3"
+    "jquery": "latest",
+    "modernizr": "latest",
+    "foundation": "latest"
   }
 }
