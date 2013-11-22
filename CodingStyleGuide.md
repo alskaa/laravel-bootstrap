@@ -1,4 +1,3 @@
-
 Coding Style Guide
 ==================
 
@@ -61,14 +60,14 @@ Don't put framework class names in the HTML; extends them in CSS.
 
 ***
 
-CSS (LESS/SASS)
+CSS (SASS)
 ---------------
 
-### Bootstrap / Foundation
+### Foundation
 Extend vendor class in the stylesheet (not in HTML)
 ```
 .container {
-    &:extend(.col-md-6);
+    @extend .large-6;
 }
 ```
 
