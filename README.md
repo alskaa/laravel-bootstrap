@@ -1,4 +1,4 @@
 laravel-bootstrap
 =================
 
-Start PHP project with Laravel and Bootstrap using Grunt and Bower
+Start PHP project with Laravel and Foundation using Grunt and Bower
