@@ -1,13 +1,12 @@
 {
-  "name": "Site name",
+  "name": "sitename",
   "version": "1.0.0",
-  "description": "Xavier Vercaemst Website",
   "url": "http://sitename.com",
   "author": "Cleekr - Julien Monty",
-  "license": "BSD-2-Clause",
+  "license": "GPLV3",
   "repository": {
     "type": "git",
-    "url": "http://github.com/alskaa/reponame.git"
+    "url": "http://github.com/alskaa/sitename.git"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
