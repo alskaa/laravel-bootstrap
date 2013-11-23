@@ -1,4 +1,5 @@
-/*_________________________________________________
+/*
+| _________________________________________________
 |
 |	Global.scss
 | _________________________________________________
@@ -7,3 +8,15 @@
 |	css rules that will be loaded by all pages.
 |
 */
+
+@import 'typography';
+@import 'variables';
+
+/* Common rules
+---------------- */
+html {
+	font-size: $baseFontSize;
+	line-height: $baseLineHeight;
+	font-family: $baseFontFamily;
+	color: $baseTextColor;
+}
