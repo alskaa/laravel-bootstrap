@@ -1,10 +1,7 @@
 {
-  "name": "Site name",
+  "name": "sitename",
   "version": "1.0.0",
   "dependencies": {
-    "bootstrap": "~3.0.1"
-  },
-  "devDependencies": {
     "jquery": "latest",
     "modernizr": "latest",
     "foundation": "latest"
