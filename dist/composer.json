@@ -1,8 +1,6 @@
 {
-	"name": "wissamecherfi.com",
-	"description": "Wissame Cherfi showcase",
-	"keywords": ["showcase", "cherfi"],
-	"license": "MIT",
+	"name": "sitename",
+	"license": "GPLV3",
 	"require": {
 		"laravel/framework": "4.0.*",
 		"vtalbot/markdown": "1.*",
