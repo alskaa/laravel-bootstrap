@@ -31,7 +31,7 @@ Comments
 ### Small title
 ```
 /* Small title
--------------- */
+=============== */
 ```
 
 ***
