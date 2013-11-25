@@ -29,7 +29,6 @@
 
         <!-- Stylesheets
         ================= -->
-        <link rel="stylesheet" href="{{$base_url}}/assets/css/global.min.css">
         <link rel="stylesheet" href="{{$base_url}}/assets/css/page.min.css">
 
         <!-- Modernizr
