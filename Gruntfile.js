@@ -67,7 +67,6 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {
-          '<%= project.dist_css %>/global.min.css': '<%= project.src_scss %>/global.scss',
           '<%= project.dist_css %>/page.min.css': '<%= project.src_scss %>/page.scss'
         }
       },
@@ -76,7 +75,6 @@ module.exports = function(grunt) {
           style: 'compressed'
         },
         files: {
-          '<%= project.dist_css %>/global.min.css': '<%= project.src_scss %>/global.scss',
           '<%= project.dist_css %>/page.min.css': '<%= project.src_scss %>/page.scss'
         }
       },
@@ -92,12 +90,6 @@ module.exports = function(grunt) {
     concat: {
       dev: {
         files: {
-
-          /* Create global.js
-          ------------------- */
-          '<%= project.dist_js %>/global.min.js': [
-            '<%= project.src_js/global.js %>',
-          ],
 
           /* Create page.js
           ----------------- */
@@ -120,15 +112,10 @@ module.exports = function(grunt) {
       prod: {
         files: {
 
-          /* Create global.js
-          ------------------- */
-          '<%= project.dist_js %>/global.min.js': [
-            '<%= project.src_js/global.js %>',
-          ],
-
           /* Create page.js
           ----------------- */
           '<%= project.dist_js %>/page.min.js': [
+            '<%= project.src_components/component/component.js %>',
             '<%= project.src_js/page.js %>',
           ],
         }
