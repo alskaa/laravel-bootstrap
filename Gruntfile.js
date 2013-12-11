@@ -95,8 +95,8 @@ module.exports = function(grunt) {
           /* Create page.js
           ----------------- */
           '<%= project.dist_js %>/page.min.js': [
-            '<%= project.src_components/component/component.js %>',
-            '<%= project.src_js/page.js %>',
+            '<%= project.src_components %>/component/component.js',
+            '<%= project.src_js %>/page.js',
           ],
         }
       }
@@ -116,8 +116,8 @@ module.exports = function(grunt) {
           /* Create page.js
           ----------------- */
           '<%= project.dist_js %>/page.min.js': [
-            '<%= project.src_components/component/component.js %>',
-            '<%= project.src_js/page.js %>',
+            '<%= project.src_components %>/component/component.js',
+            '<%= project.src_js %>/page.js',
           ],
         }
       }
