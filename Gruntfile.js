@@ -48,7 +48,7 @@ module.exports = function(grunt) {
     copy: {
       dev: {
         files: [
-          {src:'<%= project.src_components %>/**/*.blade.php', dest:'<%= project.dist_views %>/layouts/components/'}
+          {src:'<%= project.src_components %>/**/*.blade.php', dest:'<%= project.dist_views %>/layouts/components/', flatten:true, filter:'isFile', expand:true }
         ],
       },
     },
