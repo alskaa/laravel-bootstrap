@@ -115,6 +115,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'VTalbot\Markdown\MarkdownServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
+		'Way\Generators\GeneratorsServiceProvider',
 
 	),
 
