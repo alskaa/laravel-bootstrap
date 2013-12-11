@@ -4,6 +4,7 @@
 	"require": {
 		"laravel/framework": "4.0.*",
 		"vtalbot/markdown": "1.*",
+		"way/generators": "dev-master",
 		"intervention/image": "dev-master"
 	},
 	"autoload": {
