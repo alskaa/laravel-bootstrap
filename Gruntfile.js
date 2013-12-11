@@ -48,7 +48,6 @@ module.exports = function(grunt) {
     copy: {
       dev: {
         files: [
-          {src:'<%= project.src_bower %>/jquery/jquery.min.js', dest:'<%= project.dist_js %>/jquery.min.js'},
           {src:'<%= project.src_components %>/**/*.blade.php', dest:'<%= project.dist_views %>/layouts/components/'}
         ],
       },
@@ -64,7 +63,9 @@ module.exports = function(grunt) {
     sass: {
       dev: {
         options: {
-          style: 'expanded'
+          style: 'expanded',
+          compass: true,
+          loadPath: '<%= project.src_bower %>/foundation/scss'
         },
         files: {
           '<%= project.dist_css %>/page.min.css': '<%= project.src_scss %>/page.scss'
@@ -150,7 +151,11 @@ module.exports = function(grunt) {
       },
       uglify: {
         files: '<%= project.src %>/**/*.js',
-        tasks: ['uglify:dev']
+        tasks: ['concat:dev']
+      },
+      copy: {
+        files: '<%= project.src_components %>/**/*.blade.php',
+        tasks: ['copy:dev']
       },
       livereload: {
         options: {
@@ -173,7 +178,7 @@ module.exports = function(grunt) {
   | _________________________________________________
   |
   */
-  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-bg-shell');
   grunt.loadNpmTasks('grunt-contrib-uglify');
