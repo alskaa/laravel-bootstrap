@@ -68,7 +68,7 @@ module.exports = function(grunt) {
           loadPath: '<%= project.src_bower %>/foundation/scss'
         },
         files: {
-          '<%= project.dist_css %>/page.min.css': '<%= project.src_scss %>/page.scss'
+          /*'<%= project.dist_css %>/page.min.css': '<%= project.src_scss %>/page.scss'*/
         }
       },
       prod: {
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
           style: 'compressed'
         },
         files: {
-          '<%= project.dist_css %>/page.min.css': '<%= project.src_scss %>/page.scss'
+          /*'<%= project.dist_css %>/page.min.css': '<%= project.src_scss %>/page.scss'*/
         }
       },
     },
@@ -94,10 +94,10 @@ module.exports = function(grunt) {
 
           /* Create page.js
           ----------------- */
-          '<%= project.dist_js %>/page.min.js': [
+          /*'<%= project.dist_js %>/page.min.js': [
             '<%= project.src_components %>/component/component.js',
             '<%= project.src_js %>/page.js',
-          ],
+          ],*/
         }
       }
     },
@@ -110,15 +110,20 @@ module.exports = function(grunt) {
     |
     */
     uglify: {
+      dev: {
+        files: {
+          '<%= project.dist_js %>/modernizr.min.js': '<%= project.src_bower %>/modernizr/modernizr.js'
+        }
+      },
       prod: {
         files: {
-
+          '<%= project.dist_js %>/modernizr.min.js': '<%= project.src_bower %>/modernizr/modernizr.js'
           /* Create page.js
           ----------------- */
-          '<%= project.dist_js %>/page.min.js': [
+          /*'<%= project.dist_js %>/page.min.js': [
             '<%= project.src_components %>/component/component.js',
             '<%= project.src_js %>/page.js',
-          ],
+          ],*/
         }
       }
     },
@@ -193,7 +198,7 @@ module.exports = function(grunt) {
   | _________________________________________________
   |
   */
-  grunt.registerTask('default', ['copy:dev','sass:dev','concat:dev','bgShell:launchServer','watch']);
+  grunt.registerTask('default', ['copy:dev','sass:dev','concat:dev','uglify:dev','bgShell:launchServer','watch']);
   grunt.registerTask('prod', ['copy:dev','sass:prod','uglify:prod']);
 
 };
