@@ -73,7 +73,7 @@ module.exports = function(grunt) {
       },
       prod: {
         options: {
-          style: 'expanded',
+          style: 'compressed',
           compass: true,
           loadPath: '<%= project.src_bower %>/foundation/scss'
         },
