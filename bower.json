@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "devDependencies": {
     "foundation": "~5.0.2",
-    "angularjs": "*"
+    "angular": "*"
   }
 }
