@@ -12,20 +12,21 @@
 
         <!-- Favicons
         ============== -->
-        <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
-        <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
-        <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
-        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
-        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ $base_url }}/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/{{ $base_url }}apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ $base_url }}/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ $base_url }}/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ $base_url }}/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ $base_url }}/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ $base_url }}/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ $base_url }}/apple-touch-icon-152x152.png">
+        <link rel="icon" type="image/png" href="{{ $base_url }}/favicon-196x196.png" sizes="196x196">
+        <link rel="icon" type="image/png" href="{{ $base_url }}/favicon-160x160.png" sizes="160x160">
+        <link rel="icon" type="image/png" href="{{ $base_url }}/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="{{ $base_url }}/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="{{ $base_url }}/favicon-16x16.png" sizes="16x16">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-TileImage" content="{{ $base_url }}/mstile-144x144.png">
 
         <!-- Stylesheets
         ================= -->
@@ -34,27 +35,6 @@
         <!-- Modernizr
         =============== -->
         <script src="{{$base_url}}/assets/js/modernizr.min.js"></script>
-
-        <!-- Google Analytics
-        ======================
-        <script type="text/javascript">
-
-            var _gaq = _gaq || [];
-            _gaq.push(
-                ['_setAccount', 'UA-XXXXXX-X'],
-                ['_trackPageview'],
-                ['b._setAccount', 'UA-XXXXXX-X'],
-                ['b._trackPageview']
-            );
-
-            (function() {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-
-        </script>
-        -->
 
     </head>
     <body>
