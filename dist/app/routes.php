@@ -50,4 +50,14 @@ Route::post('/login', function()
 
 /* Home page
 ------------ */
-Route::get('/','');
+Route::get('/', function(){
+	
+	$data = array(
+		'base_url'  => Config::get('app.url'),
+		'page_slug' => 'index',
+		'title'     => 'Picsou | Gestion de compte bancaire'
+	);
+	
+	return View::make('index', $data);
+	
+});
