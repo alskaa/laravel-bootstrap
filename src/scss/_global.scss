@@ -9,8 +9,13 @@
 |
 */
 
-@import 'typography';
-@import 'variables';
+@import 
+	"normalize",
+	"foundation/functions",
+	"foundation/settings",
+
+	"typography",
+	"variables";
 
 /* Common rules
 ---------------- */
