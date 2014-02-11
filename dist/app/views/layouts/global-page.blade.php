@@ -1,9 +1,9 @@
 @include('partials.head')
 @include('layouts.components.header')
 
-<div class="wrapper">
+<main role="main">
 	@yield('page-content')
-</div>
+</main>
 
 @include('layouts.components.footer')
 @include('partials.tail')
