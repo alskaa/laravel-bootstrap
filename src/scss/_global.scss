@@ -13,6 +13,8 @@
 	"normalize",
 	"foundation/functions",
 	"foundation/settings",
+	"foundation/components/global",
+	"foundation/components/grid",
 
 	"typography",
 	"variables";
@@ -24,4 +26,8 @@ html, body {
 	line-height: $baseLineHeight;
 	font-family: $baseFontFamily;
 	color: $baseTextColor;
+}
+
+.wrapper {
+	@extend .row;
 }
