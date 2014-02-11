@@ -68,7 +68,7 @@ module.exports = function(grunt) {
           loadPath: '<%= project.src_bower %>/foundation/scss'
         },
         files: {
-          /*'<%= project.dist_css %>/page.min.css': '<%= project.src_scss %>/page.scss'*/
+          '<%= project.dist_css %>/main.min.css': '<%= project.src_scss %>/main.scss'
         }
       },
       prod: {
@@ -78,7 +78,7 @@ module.exports = function(grunt) {
           loadPath: '<%= project.src_bower %>/foundation/scss'
         },
         files: {
-          /*'<%= project.dist_css %>/page.min.css': '<%= project.src_scss %>/page.scss'*/
+          '<%= project.dist_css %>/main.min.css': '<%= project.src_scss %>/main.scss'
         }
       },
     },
