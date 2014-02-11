@@ -28,6 +28,6 @@ html, body {
 	color: $baseTextColor;
 }
 
-.wrapper {
+body {
 	@extend .row;
 }
