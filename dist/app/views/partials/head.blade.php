@@ -29,7 +29,7 @@
 
         <!-- Stylesheets
         ================= -->
-        <!-- <link rel="stylesheet" href="{{$base_url}}/assets/css/page.min.css"> -->
+        <link rel="stylesheet" href="{{$base_url}}/assets/css/main.min.css">
 
         <!-- Modernizr
         =============== -->
