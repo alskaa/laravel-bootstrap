@@ -2,11 +2,11 @@
   "name": "sitename",
   "version": "1.0.0",
   "url": "http://sitename.com",
-  "author": "Cleekr - Julien Monty",
+  "author": "Konpa - Julien Monty",
   "license": "GPLV3",
   "repository": {
     "type": "git",
-    "url": "http://github.com/alskaa/sitename.git"
+    "url": "http://github.com/konpa/sitename.git"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
